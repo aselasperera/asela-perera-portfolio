@@ -317,10 +317,19 @@
         gap: 1rem;
       }
 
+      /* Education specific grid - 3 columns for better layout */
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
       .skill-item {
         background: #18181b;
         border: 1px solid #27272a;
-        padding: 1rem;
+        padding: 1.5rem;
         border-radius: 0.5rem;
         text-align: center;
         transition: all 0.3s ease;
@@ -334,18 +343,20 @@
       .skill-item i {
         font-size: 2rem;
         color: #3b82f6;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
       }
 
       .skill-item h3 {
         font-size: 1rem;
         font-weight: 600;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
       }
 
       .skill-item p {
         font-size: 0.875rem;
         color: #a1a1aa;
+        line-height: 1.4;
       }
 
       /* Projects Section */
@@ -506,6 +517,12 @@
       }
 
       /* Responsive Design */
+      @media (max-width: 1024px) {
+        .education-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
       @media (max-width: 768px) {
         .nav-links {
           display: none;
@@ -530,6 +547,10 @@
         }
 
         .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .education-grid {
           grid-template-columns: 1fr;
         }
 
@@ -793,85 +814,99 @@
           <h2>Featured Projects</h2>
           <p>A showcase of my recent work and technical achievements</p>
         </div>
-<div class="projects-grid">
-  <!-- CGaaS Project -->
-  <div class="project-card scroll-animate">
-    <div class="project-image">
-      <i class="fas fa-code"></i>
-    </div>
-    <div class="project-content">
-      <h3>CGaaS.ai Platform</h3>
-      <p>
-        Full-stack enterprise-grade code generation platform. Enables users to build cloud-native, scalable applications with built-in CI/CD, authentication, and microservices support.
-      </p>
-      <div class="project-tech">
-        <span class="tech-tag">React</span>
-        <span class="tech-tag">Go</span>
-        <span class="tech-tag">MongoDB</span>
-        <span class="tech-tag">Auth0</span>
-      </div>
-      <div class="project-links">
-        <a href="https://www.cgaas-ai.com" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i>
-          Live Site
-        </a>
-      </div>
-    </div>
-  </div>
+        <div class="projects-grid">
+          <!-- CGaaS Project -->
+          <div class="project-card scroll-animate">
+            <div class="project-image">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="project-content">
+              <h3>CGaaS.ai Platform</h3>
+              <p>
+                Full-stack enterprise-grade code generation platform. Enables
+                users to build cloud-native, scalable applications with built-in
+                CI/CD, authentication, and microservices support.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Auth0</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://www.cgaas-ai.com"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Site
+                </a>
+              </div>
+            </div>
+          </div>
 
-  <!-- WinWay Project -->
-  <div class="project-card scroll-animate">
-    <div class="project-image">
-      <i class="fas fa-ticket-alt"></i>
-    </div>
-    <div class="project-content">
-      <h3>WinWay.lk Platform</h3>
-      <p>
-        Sri Lanka’s first digital lottery platform developed for the National Lotteries Board. Offers secure online purchasing, real-time results, and SMS-based access.
-      </p>
-      <div class="project-tech">
-        <span class="tech-tag">Angular</span>
-        <span class="tech-tag">Go</span>
-        <span class="tech-tag">MongoDB</span>
-        <span class="tech-tag">AWS</span>
-        <span class="tech-tag">Auth0</span>
-      </div>
-      <div class="project-links">
-        <a href="https://www.winway.lk" target="_blank" class="project-link">
-          <i class="fas fa-external-link-alt"></i>
-          Live Site
-        </a>
-      </div>
-    </div>
-  </div>
+          <!-- WinWay Project -->
+          <div class="project-card scroll-animate">
+            <div class="project-image">
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+            <div class="project-content">
+              <h3>WinWay.lk Platform</h3>
+              <p>
+                Sri Lanka's first digital lottery platform developed for the
+                National Lotteries Board. Offers secure online purchasing,
+                real-time results, and SMS-based access.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Auth0</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://www.winway.lk"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Site
+                </a>
+              </div>
+            </div>
+          </div>
 
-  <!-- Bellagio Loyalty Management System -->
-  <div class="project-card scroll-animate">
-    <div class="project-image">
-      <i class="fas fa-gift"></i>
-    </div>
-    <div class="project-content">
-      <h3>Loyalty Management System</h3>
-      <p>
-        A custom loyalty rewards platform developed for Bellagio Casino, Sri Lanka. Tracks customer points, tier progression, and redemption history with seamless admin controls and real-time analytics.
-      </p>
-      <div class="project-tech">
-        <span class="tech-tag">Angular</span>
-        <span class="tech-tag">Go</span>
-        <span class="tech-tag">MongoDB</span>
-        <span class="tech-tag">AWS</span>
-        <span class="tech-tag">Auth0</span>
-      </div>
-      <div class="project-links">
-        <a href="#" class="project-link disabled">
-          <i class="fas fa-lock"></i>
-          Private Project
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
+          <!-- Bellagio Loyalty Management System -->
+          <div class="project-card scroll-animate">
+            <div class="project-image">
+              <i class="fas fa-gift"></i>
+            </div>
+            <div class="project-content">
+              <h3>Loyalty Management System</h3>
+              <p>
+                A custom loyalty rewards platform developed for Bellagio Casino,
+                Sri Lanka. Tracks customer points, tier progression, and
+                redemption history with seamless admin controls and real-time
+                analytics.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Auth0</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link disabled">
+                  <i class="fas fa-lock"></i>
+                  Private Project
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -882,11 +917,16 @@
           <h2>Education</h2>
           <p>My academic journey and qualifications</p>
         </div>
-        <div class="skills-grid scroll-animate">
+        <div class="education-grid scroll-animate">
           <div class="skill-item">
             <i class="fas fa-university"></i>
             <h3>University of Westminster</h3>
             <p>BSc (Hons) Computer Science (4th Year Undergraduate)</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-laptop-code"></i>
+            <h3>ESOFT Metro Campus</h3>
+            <p>Diploma in IT and English</p>
           </div>
           <div class="skill-item">
             <i class="fas fa-school"></i>
