@@ -30,7 +30,6 @@
         color: #e4e4e7;
         background: #09090b;
         overflow-x: hidden;
-        overflow-y: auto; /* Ensure vertical scroll is always available */
       }
 
       /* Navigation */
@@ -961,6 +960,71 @@
                 <span class="tech-tag">Auth0</span>
               </div>
               <div class="project-links">
+                <a
+                  href="https://www.cgaas-ai.com"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- WinWay Project -->
+          <div class="project-card scroll-animate">
+            <div class="project-image">
+              <i class="fas fa-ticket-alt"></i>
+            </div>
+            <div class="project-content">
+              <h3>WinWay.lk Platform</h3>
+              <p>
+                Sri Lanka's first digital lottery platform developed for the
+                National Lotteries Board. Offers secure online purchasing,
+                real-time results, and SMS-based access.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Auth0</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://www.winway.lk"
+                  target="_blank"
+                  class="project-link"
+                >
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Site
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bellagio Loyalty Management System -->
+          <div class="project-card scroll-animate">
+            <div class="project-image">
+              <i class="fas fa-gift"></i>
+            </div>
+            <div class="project-content">
+              <h3>Loyalty Management System</h3>
+              <p>
+                A custom loyalty rewards platform developed for Bellagio Casino,
+                Sri Lanka. Tracks customer points, tier progression, and
+                redemption history with seamless admin controls and real-time
+                analytics.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Auth0</span>
+              </div>
+              <div class="project-links">
                 <a href="#" class="project-link disabled">
                   <i class="fas fa-lock"></i>
                   Private Project
@@ -971,6 +1035,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- Education Section -->
     <section id="education" class="section">
@@ -1050,20 +1115,6 @@
     </footer>
 
     <script>
-      // Ensure scroll is enabled on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-        
-        // Force scroll position to top and enable scrolling
-        window.scrollTo(0, 0);
-        
-        // Ensure page is ready for interaction
-        setTimeout(() => {
-          document.body.style.pointerEvents = "auto";
-        }, 100);
-      });
-
       // Mobile menu functionality
       const mobileMenu = document.querySelector(".mobile-menu");
       const navLinks = document.querySelector(".nav-links");
@@ -1143,34 +1194,30 @@
         observer.observe(el);
       });
 
-      // Typing animation for hero text (fixed to not interfere with scroll)
+      // Typing animation for hero text
       const heroTitle = document.querySelector(".hero-content h1");
       if (heroTitle) {
         const text = heroTitle.innerHTML;
-        heroTitle.innerHTML = text; // Keep original text visible immediately
-        heroTitle.style.opacity = "0";
-        
-        // Fade in the text instead of typing to avoid scroll issues
-        setTimeout(() => {
-          heroTitle.style.transition = "opacity 1s ease-in-out";
-          heroTitle.style.opacity = "1";
-        }, 500);
+        heroTitle.innerHTML = "";
+        let i = 0;
+
+        const typeWriter = () => {
+          if (i < text.length) {
+            heroTitle.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+          }
+        };
+
+        setTimeout(typeWriter, 1000);
       }
 
-      // Parallax effect for hero background (optimized)
-      let ticking = false;
-      
+      // Parallax effect for hero background
       window.addEventListener("scroll", () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            const scrolled = window.pageYOffset;
-            const heroBackground = document.querySelector(".hero-background");
-            if (heroBackground && scrolled < window.innerHeight) {
-              heroBackground.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-            ticking = false;
-          });
-          ticking = true;
+        const scrolled = window.pageYOffset;
+        const heroBackground = document.querySelector(".hero-background");
+        if (heroBackground) {
+          heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
         }
       });
 
